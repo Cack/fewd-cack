@@ -8,18 +8,23 @@
   header {
     background-color: gray;
     overflow: auto;
-  }
+    height: auto;
+    border-bottom: 1px solid black;
+      }
 
-  a button {
-    width: 30%;
+  ul {
+    width: 10%;
     float: right;
-    margin-right: 20px
-
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 0px;
 
   }
 
-  a{
+  a {
     color: white;
+    text-decoration: none;
+
   }
 
   button {
@@ -43,7 +48,11 @@
     width: 600px;
     margin-left: auto;
     margin-right: auto;
-    border: 2px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 1px solid gray;
+    border-radius: 2%;
+    padding: 10px;
 
   }
 
@@ -65,10 +74,12 @@
     <header>
       <img src="http://cloud.avandamiri.com/image/423B1n2p2v0U/acme-corp.jpg" alt="Acme Logo" />
       <nav>
-          <a href="#">Products</a>
-          <button type="button" name="button">Sign Up</button>
-      </nav>
+          <ul>
+            <a href="#">Products</a>
+            <button type="button" name="button">Sign Up</button>
 
+          </ul>
+          </nav>
     </header>
 
 <main>
