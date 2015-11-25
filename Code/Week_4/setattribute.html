@@ -1,0 +1,37 @@
+<style media="screen">
+  .done {
+    color: gray;
+    text-decoration:line-through;
+  }
+</style>
+
+
+
+<ul>
+  <li>one</li>
+  <li>two</li>
+  <li>three</li>
+</ul>
+
+<script type="text/javascript">
+  var listItem1 = document.querySelector("li:nth-child");
+  var listItem2 = document.querySelector("li:nth-child");
+  var listItem3 = document.querySelector("li:nth-child");
+
+  // listItem.setAttribute ("style", "color:red;")
+
+
+// when "clicked" then in this case, move that list item to "done" and thus make gray and crossed off
+  listItem1.addEventListener("click", itemClicked);
+  listItem2.addEventListener("click", itemClicked);
+  listItem3.addEventListener("click", itemClicked);
+
+
+
+// this is the function version
+// there is ADD, REMOVE, TOGGLE (mark between complete/not complete), etc.
+function itemClicked(event) {
+  event.target.classList.add("done");
+}
+
+</script>
