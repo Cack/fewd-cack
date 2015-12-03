@@ -116,8 +116,10 @@
 
         // Your code for like goes here
 
-        // get element from span
-        var likeCount = document.querySelector("span");
+        // get element from span (the parent!)
+        // var likeCount = document.querySelector("span");
+        // get element from class, becuase that is more clear than the span
+        var likeCount = document.querySelector(".like-count")
         // create incrementer, tell browswer it is a number (vs. text)
         var likeIncrement = Number(likeCount.textContent);
         // increment by 1
@@ -132,16 +134,19 @@
         // Your code for comments goes here
 
         // get element from parent (id = comments)
-        var newestComment = document.querySelector("#comments");
-        var newestCommentText = document.querySelector("#new-comment-body");
+        var commentContainer = document.querySelector("#comments");
+        // create bucket
+        var newestComment = document.createElement("div");
+        //
+        var commentText = document.querySelector("#new-comment-body").value;
         // when comment is created, take value of textArea and set to textContent of new div
-        comment.textContent = newestCommentText.value;
-        //  create new div (class="comments")
-        var createDiv = document.createElement("#comments");
+        // comment.textContent = newestCommentText.value;
+        newestComment.textContent = commentText
+
         // append to parent (div)
-        newestCommentText.appendChild(comments)
+        commentContainer.appendChild(newestComment);
 
-
+        document.querySelector("#new-comment-body").value = "";
       }
     </script>
   </body>
