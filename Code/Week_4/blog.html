@@ -108,18 +108,40 @@
       var form = document.querySelector("#new-comment");
 
       link.addEventListener("click", like);
-      link.addEventListener("submit", comment);
+      form.addEventListener("submit", comment);
 
+        // Note to self, events are always (always) in this format, with the preventDefault following the function
       function like(event) {
         event.preventDefault();
 
         // Your code for like goes here
+
+        // get element from span
+        var likeCount = document.querySelector("span");
+        // create incrementer, tell browswer it is a number (vs. text)
+        var likeIncrement = Number(likeCount.textContent);
+        // increment by 1
+        var incrementedCount = likeIncrement + 1;
+        // standard format (element.textContent = text, in this case a calc)
+        likeCount.textContent = incrementedCount
       }
 
       function comment(event) {
         event.preventDefault();
 
         // Your code for comments goes here
+
+        // get element from parent (id = comments)
+        var newestComment = document.querySelector("#comments");
+        var newestCommentText = document.querySelector("#new-comment-body");
+        // when comment is created, take value of textArea and set to textContent of new div
+        comment.textContent = newestCommentText.value;
+        //  create new div (class="comments")
+        var createDiv = document.createElement("#comments");
+        // append to parent (div)
+        newestCommentText.appendChild(comments)
+
+
       }
     </script>
   </body>
