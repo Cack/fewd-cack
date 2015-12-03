@@ -1,0 +1,115 @@
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  </head>
+
+<body>
+
+<main>
+  <form id="new-todo-item-form">
+    <input type="text" id="new-todo-item-input" placeholder="What do you need to do?">
+    <button type="submit">Create</button>
+  </form>
+
+  <ul id="todo-list">
+  </ul>
+</main>
+
+<script>
+
+// create a todo input and create a button (both variables)
+  var newTask = document.querySelector("#new-todo-item-input");
+  var button = document.querySelector("button");
+
+// create the event listener to listen to the BUTTON, upon CLICK
+  button.addEventListener("click", todo);
+
+// Create the function, named "todo" because that is what was named for the event listener
+// always include the (event) so that it knows that it's an event
+  function todo(event) {
+    event.preventDefault();
+
+    // get element from parent, where #todo-list is the ID for the UL
+      var toDoContainer = document.querySelector("#todo-list");
+    // create new list item, where newToDo is the variable name for the new LI that we are CREATING
+      var newToDo = document.createElement("li");
+    // append the LI (newToDo) to the UL (toDoContainer)
+      toDoContainer.appendChild(newToDo);
+
+    // for the LI, we have to create both an input (checkbox) and a label (text)
+      var newInput = document.createElement("input");
+    // append the new Input to the LI, so that the input (and eventual label) are children of the LI
+      newToDo.appendChild(newInput);
+    // set the type of the input as type CHECKBOX
+      newInput.setAttribute('type', 'checkbox');
+
+    // do the same for the label that we did for the input, create the label
+      var newLabel = document.createElement("label");
+    // append label to the LI
+      newToDo.appendChild(newLabel);
+    // take the textContent from the ORIGINAL newTask (the name of the comment field for the to do list) and set the value of that into the new label
+      newLabel.textContent = newTask.value;
+
+
+
+}
+
+</script>
+
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #f1f0f5;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: 1.4em;
+  }
+  main {
+    margin: 2em auto;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+    background: white;
+    padding: 2em 3em;
+    max-width: 600px;
+  }
+  input,
+  button {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom-width: 2px;
+    border-radius: 5px; font-size: inherit;
+    padding: .5em 1em;
+    cursor: pointer;
+  }
+  #new-todo-item-input {
+    width: 70%;
+  }
+  button {
+    color: white;
+    width: 28%;
+    background-color: #049cd8;
+  }
+  form,
+  ul {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  li {
+    margin-top: 0.75em;
+    padding-top: 0.75em;
+  }
+  li span {
+    margin-left: 0.5em;
+  }
+  label {
+    cursor: pointer;
+  }
+</style>
+
+</body>
+
+</html>
