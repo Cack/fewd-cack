@@ -46,11 +46,41 @@ div {
 
 }
 
+.red {
+  background-color: red;
+
+}
+
 
 </style>
 
   </head>
   <body>
+
+  </script>
+
+
+      <header>
+        <button class="stop-button">Stop</button>
+        <button class="slow-button">Slow</button>
+        <button class="go-button">Go</button>
+        <button class="caution-button">Caution</button>
+      </header>
+
+  <main>
+    <section>
+      <div class="stop-light">
+      </div>
+
+      <div class="slow-light">
+      </div>
+
+      <div class="go-light">
+      </div>
+
+    </section>
+  </main>
+
 
 <script type="text/javascript">
 
@@ -62,10 +92,16 @@ var cautionButton = document.querySelector(".caution-button");
 stopButton.addEventListener("click", red);
 slowButton.addEventListener("click", yellow);
 goButton.addEventListener("click", green);
-cautionButton.addEventListener("click", yellow-flash);
+cautionButton.addEventListener("click", flash);
 
-function red() {
+function red(event) {
+    event.preventDefault;
 
+    // get element
+      var stopLight = document.querySelector(".stop-light");
+      // set attribute
+      // stopLight.setAttribute("class", ".red");
+      stopLight.style.backgroundColor = "red";
   }
 
 function yellow() {
@@ -76,35 +112,12 @@ function green() {
 
 }
 
-function yellow-flash() {
+function flash() {
 
 }
 
 
 
-</script>
-
-
-    <header>
-      <button class="stop-button">Stop</button>
-      <button class="slow-button">Slow</button>
-      <button class="go-button">Go</button>
-      <button class="caution-button">Caution</button>
-    </header>
-
-<main>
-  <section>
-    <div class="stop-light">
-    </div>
-
-    <div class="slow-light">
-    </div>
-
-    <div class="go-light">
-    </div>
-
-  </section>
-</main>
 
 
 
