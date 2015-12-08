@@ -46,10 +46,22 @@ div {
 
 }
 
-.red {
+.stop-light-red {
   background-color: red;
 
 }
+
+.slow-light-yellow {
+  background-color: yellow;
+
+}
+
+.go-light-green {
+  background-color: green;
+
+}
+
+
 
 
 </style>
@@ -89,35 +101,61 @@ var slowButton = document.querySelector(".slow-button");
 var goButton = document.querySelector(".go-button");
 var cautionButton = document.querySelector(".caution-button");
 
+
+
 stopButton.addEventListener("click", red);
 slowButton.addEventListener("click", yellow);
 goButton.addEventListener("click", green);
 cautionButton.addEventListener("click", flash);
 
+var slowLight = document.querySelector(".slow-light");
+var stopLight = document.querySelector(".stop-light");
+var goLight = document.querySelector(".go-light");
+
+
+
 function red(event) {
-    event.preventDefault;
+    event.preventDefault();
 
     // get element
       var stopLight = document.querySelector(".stop-light");
       // set attribute
       // stopLight.setAttribute("class", ".red");
-      stopLight.style.backgroundColor = "red";
+      // stopLight.style.backgroundColor = "red";
+      stopLight.classList.add("stop-light-red");
+      slowLight.classList.remove("slow-light-yellow");
+      goLight.classList.remove("go-light-green");
+
   }
 
-function yellow() {
+function yellow(event) {
+  event.preventDefault();
+
+    var slowLight = document.querySelector(".slow-light");
+    slowLight.classList.add("slow-light-yellow");
+    stopLight.classList.remove("stop-light-red");
+    goLight.classList.remove("go-light-green");
+
 
 }
 
-function green() {
+function green(event) {
+  event.preventDefault();
+
+    var goLight = document.querySelector(".go-light");
+    goLight.classList.add("go-light-green");
+    slowLight.classList.remove("slow-light-yellow");
+    stopLight.classList.remove("stop-light-red");
 
 }
 
-function flash() {
+function flash(event) {
+  event.preventDefault();
 
 }
 
 
-
+</script>
 
 
 
