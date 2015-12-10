@@ -1,0 +1,65 @@
+<p>
+  There are <span id="count">0</span> students in the class:
+</p>
+
+<ol>
+</ol>
+
+<script>
+var students = [
+  "Allison",
+  "Amanda",
+  "Angela",
+  "Bora",
+  "Brad",
+  "Cack",
+  "David",
+  "David",
+  "Denise",
+  "Diana",
+  "Emily",
+  "Eric",
+  "Fernando",
+  "Gina",
+  "Guillermo",
+  "Jake",
+  "JC",
+  "Jessica",
+  "Kathryn",
+  "Kuulei",
+  "Laci",
+  "Lila",
+  "Lindsey",
+  "Madison",
+  "Megan",
+  "My",
+  "Nicholas",
+  "Oleg",
+  "Pegah",
+  "Ryan",
+  "Serge",
+  "Yiqian"
+];
+
+
+function addToList(name) {
+
+  var ol = document.querySelector("ol");
+  var li = document.createElement('li');
+  ol.appendChild(li);
+  li.textContent = name;
+
+}
+
+for (var i = 0; i < students.length; i++) {
+    addToList(students[i]);
+  }
+
+
+var span = document.querySelector("#count");
+  span.textContent = students.length;
+
+
+
+</script>
+</body>
