@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Stoplight</title>
+
+<style media="screen">
+
+* { box-sizing: border-box;}
+
+body {
+    font-size: 20px;
+    font-family: sans-serif;
+  }
+
+button {
+    cursor: pointer;
+    border: 1px solid black;
+    font-color: black;
+    background-color: white;
+    font: inherit;
+    border-radius: 4px;
+  }
+
+main {
+    width: 200px;
+    height: 500px;
+    margin-left: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 1px solid rgb(197,197,197);
+    border-radius: 18px;
+    padding: 10px;
+    background-color: yellow;
+  }
+
+div {
+  width: 150px;
+  height: 150px;
+  background-color: gray;
+  border: 1px solid black;
+  border-top-width: 6px solid black;
+  border-bottom-width: 1px solid black;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  box-shadow: inset 0 5px 15px rgba(0,0,0,0.2);
+
+}
+
+.stop-light-red {
+  background-color: red;
+
+}
+
+.slow-light-yellow {
+  background-color: yellow;
+
+}
+
+.go-light-green {
+  background-color: green;
+
+}
+
+.light-default {
+  background-color: gray;
+}
+
+</style>
+
+  </head>
+  <body>
+
+  </script>
+
+
+      <header>
+        <button class="stop-button">Stop</button>
+        <button class="slow-button">Slow</button>
+        <button class="go-button">Go</button>
+        <button class="caution-button">Caution</button>
+      </header>
+
+  <main>
+    <div class="light">
+      <div class="stop-light">
+      </div>
+
+      <div class="slow-light">
+      </div>
+
+      <div class="go-light">
+      </div>
+
+    </div>
+  </main>
+
+
+<script type="text/javascript">
+
+var stopButton = document.querySelector(".stop-button");
+var slowButton = document.querySelector(".slow-button");
+var goButton = document.querySelector(".go-button");
+var cautionButton = document.querySelector(".caution-button");
+
+
+
+stopButton.addEventListener("click", red);
+slowButton.addEventListener("click", yellow);
+goButton.addEventListener("click", green);
+cautionButton.addEventListener("click", flash);
+
+var light = document.querySelector(".light");
+var stopLight = document.querySelector(".stop-light");
+var slowLight = document.querySelector(".slow-light");
+var goLight = document.querySelector(".go-light");
+var myVar;
+
+
+function red(event) {
+    event.preventDefault();
+    stopLight.classList.add("stop-light-red");
+    slowLight.classList.remove("slow-light-yellow");
+    goLight.classList.remove("go-light-green");
+    clearInterval(myVar);
+  }
+
+
+function yellow(event) {
+    event.preventDefault();
+    slowLight.classList.add("slow-light-yellow");
+    stopLight.classList.remove("stop-light-red");
+    goLight.classList.remove("go-light-green");
+    clearInterval(myVar);
+}
+
+
+function green(event) {
+    event.preventDefault();
+    goLight.classList.add("go-light-green");
+    slowLight.classList.remove("slow-light-yellow");
+    stopLight.classList.remove("stop-light-red");
+    clearInterval(myVar);
+}
+
+
+function flash(event) {
+  event.preventDefault();
+
+  slowLight.classList.remove("slow-light-yellow");
+  stopLight.classList.remove("stop-light-red");
+  goLight.classList.remove("go-light-green");
+  caution();
+  myVar = setInterval(caution,1000);
+}
+
+function caution(event){
+    slowLight.classList.toggle("slow-light-yellow");
+  }
+
+
+
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
