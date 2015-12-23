@@ -28,7 +28,7 @@ main {
     margin-left: 10px;
     margin-top: 30px;
     margin-bottom: 30px;
-    border: 1px solid rgb(197,197,197);
+    border: 1px solid gray;
     border-radius: 18px;
     padding: 10px;
     background-color: yellow;
@@ -45,7 +45,6 @@ div {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
-  box-shadow: inset 0 5px 15px rgba(0,0,0,0.2);
 
 }
 
@@ -64,9 +63,6 @@ div {
 
 }
 
-.light-default {
-  background-color: gray;
-}
 
 </style>
 
@@ -104,8 +100,6 @@ var stopButton = document.querySelector(".stop-button");
 var slowButton = document.querySelector(".slow-button");
 var goButton = document.querySelector(".go-button");
 var cautionButton = document.querySelector(".caution-button");
-
-
 
 stopButton.addEventListener("click", red);
 slowButton.addEventListener("click", yellow);
@@ -164,11 +158,5 @@ function caution(event){
 
 
 </script>
-
-
-
-
-
-
   </body>
 </html>
