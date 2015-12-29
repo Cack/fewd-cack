@@ -1,0 +1,92 @@
+
+
+//Chat on Firebase
+
+//Need local storage to store the user name (upon first prompt)
+//show and hide the "intiial state"
+//create message on the screen: createElement, textContent, appendChild, setAttribute, classList
+
+//CSS: fixed positioning to allow for scroll, and chats don't scroll
+//CSS: need to have padding at the bottom to ensure footer does not cover content
+//CSS: make a triangle
+//CSS: button has a gradient
+//CSS: can get the comments wired up and not worry about the rest
+//CSS for mobile: needs mid-width for the Send button
+
+createdAt: (newDate)....
+
+// read messages from Firebase
+// write to Firebase
+// need a timestamp
+
+
+// Asking for username (only once, via localStorage):
+// var username = localStorage.getItem("username");
+
+  if (username == null) {
+      username = prompt ("what")
+  }
+
+// Create a Chat message
+// 1. need to create a form
+// 2. listen to the form submit (addEventListener)
+// 3. when form is submitted, save to Firebase firebase.push({...})
+// 4. When form is submitted, prevent the default (event.preventDefault ())
+// 5. Reset form and focus the cursor back to the text box
+
+// Display the Chat Message
+// 1. Subscribe to firebase "child_added" event (when a child is added, then call a function)
+
+  firebase.on('child_added', function (snapshot){
+    looks like message = {  messageBody: "yo yo!",   username: "avand" createdAt: 1234 }
+    var message = snapshot.val();
+
+
+  })
+
+// 2. Create an li for the message content, create new li for each new comment
+// 3. Use the messageBody from Firebase to set the textContent (pull out of data)
+
+      // WE ALL AGREE ON THIS
+        var message = {
+          messageBody: "yo yo!",
+          username: "avand"
+        }
+
+        var message = snapshot.val(); // looks like the above where we all agree
+
+      var messageItem = document.createElement("li");
+      messageItem.textContent = message.messageBody;
+
+// 4. Append li to the parent (div?)
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+    <script>
+        var firebase = new Firebase("https://blinding-inferno-7422.firebaseio.com");
+
+        // firebase.push({
+        //     username: "yo yo",
+        //     messageBody: "1 hour to go"
+        // });
+
+// when a child is added to the database, let me know
+//firebase.on is saying this is a function, listen when on, and then listen when a child is added (message received)
+// it responds to snapshots
+        firebase.on('child_added', function (snapshot) {
+//if you put .val, they will tell you the value
+          var data = snapshot.val();
+          console.log(data);
+
+});
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

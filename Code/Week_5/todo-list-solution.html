@@ -22,13 +22,25 @@
   var newTask = document.querySelector("#new-todo-item-input");
   var button = document.querySelector("button");
 
+
 // create the event listener to listen to the BUTTON, upon CLICK
   button.addEventListener("click", todo);
 
 // Create the function, named "todo" because that is what was named for the event listener
 // always include the (event) so that it knows that it's an event
+
   function todo(event) {
     event.preventDefault();
+
+    var items = newTask.value.split(",  ")
+
+    for (var i = 0; i < items.length; i++) {
+      createItem(items[i]);
+    }
+
+}
+
+function createItem() {
 
     // get element from parent, where #todo-list is the ID for the UL
       var toDoContainer = document.querySelector("#todo-list");
@@ -37,23 +49,25 @@
     // append the LI (newToDo) to the UL (toDoContainer)
       toDoContainer.appendChild(newToDo);
 
-    // for the LI, we have to create both an input (checkbox) and a label (text)
-      var newInput = document.createElement("input");
-    // append the new Input to the LI, so that the input (and eventual label) are children of the LI
-      newToDo.appendChild(newInput);
-    // set the type of the input as type CHECKBOX
-      newInput.setAttribute('type', 'checkbox');
-
-    // do the same for the label that we did for the input, create the label
-      var newLabel = document.createElement("label");
-    // append label to the LI
-      newToDo.appendChild(newLabel);
-    // take the textContent from the ORIGINAL newTask (the name of the comment field for the to do list) and set the value of that into the new label
-      newLabel.textContent = newTask.value;
 
 
+      // for the LI, we have to create both an input (checkbox) and a label (text)
+        var newInput = document.createElement("input");
+      // append the new Input to the LI, so that the input (and eventual label) are children of the LI
+        newToDo.appendChild(newInput);
+      // set the type of the input as type CHECKBOX
+        newInput.setAttribute('type', 'checkbox');
 
+        // do the same for the label that we did for the input, create the label
+          var newLabel = document.createElement("label");
+        // append label to the LI
+          newToDo.appendChild(newLabel);
+        // take the textContent from the ORIGINAL newTask (the name of the comment field for the to do list) and set the value of that into the new label
+          // newLabel.textContent = items;
 }
+
+
+
 
 </script>
 
