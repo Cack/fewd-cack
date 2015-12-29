@@ -14,8 +14,7 @@ main {
   padding: 2em 3em;
   max-width: 600px;
 }
-input,
-button {
+input, button {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-bottom-width: 2px;
   border-radius: 5px; font-size: inherit;
