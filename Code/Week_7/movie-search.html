@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Movie Search</title>
+    <title>Movie Database Search</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="movie-search.css" media="screen" charset="utf-8">
@@ -27,6 +27,65 @@
       </ul>
     </main>
 
-    <script src="movie-search.js"></script>
+    <script src=movie-search.js>
+
+// Found the movie-search.js file after I hacked at this for a while
+
+// // get form #moveie-search-form, where the input and button are housed
+// var form = document.querySelector("#movie-search-form");
+//
+// // add event listener on the input in the form ()
+// form.addEventListener("submit", whenSubmitted); //call function called whenSubmitted, when event triggers
+//
+// // add a funtion whenSubmitted to get the results
+// function whenSubmitted(event) {
+//   event.preventDefault;
+// // get input #query
+//   var input = document.querySelector("#query").value;
+//   var url = "http://www.omdbapi.com/?s="+ input;
+//   $.get(url, movieResults);
+//
+//   // form.reset();
+// }
+//
+// // add function called movieResults to get the results that apply
+// // update to a for loop once working
+//   function movieResults(results) {
+//
+//     for (var i = 0; i < results["Search"].length; i++) {
+//       addMovie(results["Search"][i]);
+//     }
+// }
+//
+// // add function that adds the LI for the movie, adds the div (x2), adds the href, adds textContent, adds CSS styling
+//
+// function addMovie(movie) {
+//
+// // get UL #movies
+//   var list = document.querySelector("#movies");
+// // create the elements to append to list once they've been retrieved
+//   var holder = document.createElement("li");
+//   var name = document.createElement("div");
+//   var hyperLink = document.createElement("a");
+//   var year = document.createElement("div");
+//
+//   hyperLink.textContent = movie["Title"];
+//   var url2 = "http://www.imdb.com/title/" + movie["imdbID"];
+//   hyperLink.setAttribute("href", url2);
+//   year.textContent = movie["Year"];
+//
+//   list.appendChild(holder);
+//   holder.appendChild(name);
+//   name.appendChild(hyperLink);
+//   holder.appendChild(year);
+//
+//   holder.classList.add("movie"); // add CSS element style from class above
+//   name.classList.add("movie-title"); // same
+//   year.classList.add("movie-release-date"); // same
+
+}
+
+
+    </script>
   </body>
 </html>
