@@ -25,9 +25,40 @@ function resultsReceived(results) {
   // The array of movies lives inside results["Search"]
   // See the sampleResult above for an example
 
-  // Access the array of movies:
-  results["Search"]
+  for (var i = 0; i < results["Search"].length; i++) {
+    addMovie(results["Search"][i]);
+  }
 
-  // Access the first movie title
-  results["Search"][0]["Title"]
+
+  // // Access the array of movies:
+  // results["Search"]
+  //
+  // // Access the first movie title
+  // results["Search"][0]["Title"]
+}
+
+function addMovie(movie) {
+
+// get UL #movies
+  var list = document.querySelector("#movies");
+// create the elements to append to list once they've been retrieved
+  var holder = document.createElement("li");
+  var name = document.createElement("div");
+  var hyperLink = document.createElement("a");
+  var year = document.createElement("div");
+
+  hyperLink.textContent = movie["Title"];
+  var url2 = "http://www.imdb.com/title/" + movie["imdbID"];
+  hyperLink.setAttribute("href", url2);
+  year.textContent = movie["Year"];
+
+  list.appendChild(holder);
+  holder.appendChild(name);
+  name.appendChild(hyperLink);
+  holder.appendChild(year);
+
+  holder.classList.add("movie"); // add CSS element style from class above
+  name.classList.add("movie-title"); // same
+  year.classList.add("movie-release-date"); // same
+
 }
