@@ -36,3 +36,18 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+.chatbox {
+  overflow: auto;
+  margin-top: 0.8em;
+  padding: 0.3em 0.3em 0.3em 1em;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.namefield {
+  overflow: auto;
+  margin-top: 0.8em;
+  padding: 0 0 0 3em;
+  font-size: 10px;
+}
