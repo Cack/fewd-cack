@@ -32,12 +32,13 @@
   <script>
 
   // Connect to the Firebase DB
-  var firebase = new Firebase("https://boiling-inferno-3027.firebaseio.com");
+  var firebase = new Firebase("https://blinding-inferno-7422.firebaseio.com");
 
   // Event listener to list to events (chats posted to Firesbase)
   var form = document.querySelector("#messages"); //this is the form
   var input = document.querySelector("#chat-text"); //this is the input (text)
   var list = document.querySelector("#posted-chats"); //this is the UL
+
 
 
   // Run whenSubmitted program when submit button is pushed
@@ -48,6 +49,7 @@
     var username = prompt("Please input a username?");
     var inputText = input.value;
 
+    // log to ensure working
     console.log(username);
     console.log(inputText);
 
@@ -57,9 +59,37 @@
     // Reset form
     form.reset();
 
+    // add chat to page
+    var listItem = document.createElement("li");
+    listItem.textContent = inputText;
+    list.appendChild(listItem);
+    listItem.classList.add("chatbox");
 
+    // add username to page
+    var nameToken = document.createElement("li");
+    nameToken.textContent = "Posted by:  " + username;
+    list.appendChild(nameToken);
+    nameToken.classList.add("namefield");
 
   }
+
+// eventListener in Firebase form, calling a function upon event (child_added)
+firebase.on("child_added",createMessageFromFirebase)
+
+// function to create message
+  function createMessageFromFirebase(snapshot) {
+
+    var messageData = snapshot.val();
+    var externalMessage = document.createElement("li");
+    externalMessage.textContent = messageData.messageBody
+    list.appendChild(externalMessage);
+    externalMessage.classList.add("chatbox");
+
+}
+
+
+
+
 
 
   form.addEventListener("submit", whenSubmitted); //when the Submit button in the form is pressed, run 'whenSubmitted'
