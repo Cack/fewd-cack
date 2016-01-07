@@ -47,7 +47,18 @@
 
     // Ask for username
     var username = prompt("Please input a username?");
+
+    // Ask for a username + local storage
+    // var username = localStorage.getItem("username");
+    //
+    // if (username == null) {
+    //   username = prompt("Please input a username?");
+    //   localStorage.setItem("username", username);
+    // }
+
     var inputText = input.value;
+
+
 
     // log to ensure working
     console.log(username);
@@ -80,10 +91,16 @@ firebase.on("child_added",createMessageFromFirebase)
   function createMessageFromFirebase(snapshot) {
 
     var messageData = snapshot.val();
+    // chat
     var externalMessage = document.createElement("li");
-    externalMessage.textContent = messageData.messageBody
+    externalMessage.textContent = messageData.messageBody;
     list.appendChild(externalMessage);
     externalMessage.classList.add("chatbox");
+    // username
+    var externalUser = document.createElement("li");
+    externalUser.textContent = "Posted by:  " + messageData.username;
+    list.appendChild(externalUser);
+    externalUser.classList.add("namefield");
 
 }
 
